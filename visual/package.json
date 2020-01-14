@@ -1,0 +1,19 @@
+{
+  "name": "visual",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "express-winston": "^4.0.2",
+    "jaeger-client": "^3.17.1",
+    "opentracing": "^0.14.4",
+    "path": "^0.12.7",
+    "winston": "^3.2.1"
+  }
+}

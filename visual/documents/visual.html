@@ -1,0 +1,77 @@
+<html>
+   <head>
+      <title>Microservices</title>
+      
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.10/vue.min.js" integrity="sha256-chlNFSVx3TdcQ2Xlw7SvnbLAavAQLO0Y/LBiWX04viY=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.0/axios.min.js" integrity="sha256-S1J4GVHHDMiirir9qsXWc8ZWw74PHHafpsHp5PXtjTs=" crossorigin="anonymous"></script>
+    </head>
+   
+   <body>
+       <div id = "app">
+      <div  style="display: flex;justify-content: center;align-items: center;min-height: 100vh; width: 100%;background-image: url('https://s23916.pcdn.co/wp-content/uploads/2019/08/great-jokes-for-kids-from-southeast-michigan.jpg');">
+    <div style="display: inline-flex;width: 100%;justify-content: space-around;">
+        <div style="background-color: #fea1ab; width: 40%;text-align: center;    display: flex;
+        justify-content: center;
+        align-items: center;">
+
+            Project for the subject Web and SaaS Services
+            <br>
+            Student: Абдуллах Хаидари
+            <br>
+            Date: 13 of January 2020
+            <br>
+            Master Thesis in English
+        
+        </div>
+        <div style="background-color: #fea1ab; width: 40%;text-align: center;">
+<div style="word-break: break-all;">
+    <h3 style="margin-bottom: 0 !important;">Microservice: Jokes</h3>
+    <button @click="getJoke()">Consult a  new Joke</button><br>
+    {{joke}}
+
+</div>
+<div style="word-break: break-all;">
+    <h3 style="margin-bottom: 0 !important;">Microservice: Chuck Norris</h3>
+    <button @click="getFactChuckNorris()">Consult a new Chuck Norris Fact</button><br>
+    {{factChuckNorris}}
+
+</div>
+        </div>
+
+    </div>
+
+    </div>
+    </div>
+      <script type = "text/javascript" >
+      var app = new Vue({
+   el: '#app',
+   data: {
+        joke: '',
+        factChuckNorris: ''
+   },
+   methods: {
+    getJoke() {
+               tt = this;
+                axios.get('http://35.228.132.76/jokes')
+                .then(function (response) {
+                    tt.joke = response.data;
+                })
+                .catch(function (error) {
+      console.log('ErrErrErrErr');
+                });
+            },
+            getFactChuckNorris() {
+                tt = this;
+                axios.get('http://35.228.32.122/chucknorris')
+                .then(function (response) {
+                    tt.factChuckNorris = response.data;
+                })
+                .catch(function (error) {
+      console.log('ErrErrErrErrErr');
+                });
+            }
+        }
+})
+      </script>
+   </body>
+</html>
